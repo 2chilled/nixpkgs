@@ -441,4 +441,23 @@ rec {
     };
   };
 
+  mat = buildEclipseUpdateSite rec {
+    name = "mat-${version}";
+    version = "1.6.0";
+
+    src = fetchzip {
+      url = "http://www.eclipse.org/downloads/download.php?r=1&file=/mat/1.6/MemoryAnalyzer-1.6.0.201605311117.zip";
+      stripRoot=false;
+      sha256 = "1s1pk24lpa9jyci1n51a6ll0qc5ppkhszrq4kchc4ip7pjjfzfpw";
+    };
+
+    meta = with stdenv.lib; {
+      homepage = https://eclipse.org/mat/;
+      description = "Memory Analyzer (MAT)";
+      license = licenses.epl10;
+      platforms = platforms.all;
+      maintainers = [ maintainers.mahe ];
+    };
+  };
+
 }
