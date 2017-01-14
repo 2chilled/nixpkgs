@@ -2287,6 +2287,26 @@ in {
     };
   };
 
+  ccm = buildPythonPackage rec {
+    version = "2.4.3";
+    name = "ccm-${version}";
+    #src = pkgs.fetchFromGitHub {
+      #owner = "pcmanus";
+      #repo = "ccm";
+      ##rev = "ccm-${version}";
+      #rev = "18a50dfde2069e64a3124e2300ad1f0c1e08f908";
+      #sha256 = "1xs9a8g68y95crqyfwd1f6gdj4xr5yn2z5xdfcmi1wp08dr8dsld";
+    #};
+    src = /tmp/ccm;
+    propagatedBuildInputs = with self; [ pyyaml six pkgs.ant psutil pkgs.jdk ];
+    meta = with pkgs.stdenv.lib; {
+      homepage = "https://github.com/pcmanus/ccm";
+      license = licenses.apache2;
+      description = "A script to easily create and destroy an Apache Cassandra cluster on localhost";
+      maintainers = with maintainers; [ mahe ];
+    };
+  };
+
   cgroup-utils = buildPythonPackage rec {
     version = "0.6";
     name = "cgroup-utils-${version}";
@@ -8428,7 +8448,7 @@ in {
       license = licenses.mit;
     };
   };
- 
+
   pathtools = buildPythonPackage rec {
     name = "pathtools-${version}";
     version = "0.1.2";
