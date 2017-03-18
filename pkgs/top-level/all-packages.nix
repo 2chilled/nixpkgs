@@ -922,6 +922,8 @@ with pkgs;
 
   gist = callPackage ../tools/text/gist { };
 
+  glassfish = callPackage ../servers/http/glassfish {};
+
   glide = callPackage ../development/tools/glide { };
 
   glock = callPackage ../development/tools/glock { };
